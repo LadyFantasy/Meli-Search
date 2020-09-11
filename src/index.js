@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import Search from "./pages/Search"
+import Home from "./pages/Home"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ <Router>
+   <Route exact path="/" component={Home}/>
+   <Route exact path="/search/:id" component={Search} />
+ </Router>,
   document.getElementById('root')
 );
 
