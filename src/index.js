@@ -5,11 +5,13 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Search from "./pages/Search"
 import Home from "./pages/Home"
+import Product from "./pages/Product"
 
 ReactDOM.render(
  <Router>
    <Route exact path="/" component={Home}/>
    <Route exact path="/search/:id" component={Search} />
+   <Route exact path="/product/:id" component={Product}/>
  </Router>,
   document.getElementById('root')
 );

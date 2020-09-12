@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Item from "../Item";
 import axios from "axios";
 import "./index.scss"
+import { useParams} from "react-router-dom"
 
 function List(props) {
+  const { id } = useParams();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -11,10 +13,11 @@ function List(props) {
   }, []);
 
   async function fetchData() {
-    const getItems = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=seinfeld`);
+    
+    const getItems = await axios.get(`https://api.mercadolibre.com/sites/${id}/search?q=chocolate&limit=16`);
 
-    console.log(getItems.data.results)
     setItems(getItems.data.results);
+    console.log(items)
   }
 
   return (
@@ -24,7 +27,7 @@ function List(props) {
           return item.title.toLowerCase().includes(props.searchParam.toLowerCase());
         })
         .map((item, key) => {
-          return <Item title={item.title} img={item.thumbnail} price={item.price} key={item.id ? item.id : key} />;
+          return <Item title={item.title} img={item.thumbnail} id={item.id} price={item.price} key={item.id ? item.id : key} />;
         })}
     </div>
   );
