@@ -14,7 +14,7 @@ function List(props) {
   }, [searchQuery]);
 
   async function fetchData() {
-    const getItems = await axios.get(`https://api.mercadolibre.com/sites/${id}/search?q=${searchQuery}&limit=16`);
+    const getItems = await axios.get(`https://api.mercadolibre.com/sites/${id}/search?q=${searchQuery}&limit=20`);
 
     setItems(getItems.data.results);
   }
