@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 function Header(props) {
   function handleChange(e) {
     // función que llega del padre
-    props.handleCallback(e.target.value);
+    if(e.key === "Enter") {
+      props.handleCallback(e.target.value);
+    }
+    
   }
 
   return (
@@ -18,7 +21,7 @@ function Header(props) {
         />
       </Link>
 
-      <input className="input-header" type="text" onChange={handleChange} />
+      <input className="input-header" type="text" placeholder="¿Qué querés buscar?" onKeyDown={handleChange} />
       <p className="text-header">Comprá hoy y pagá después</p>
     </div>
   );

@@ -7,8 +7,8 @@ function Search() {
   const [searchParam, setSearchParam] = useState("");
 
   function handleSearch(searchParam) {
-    // setea estado con parámetro que vuelve del callback
     setSearchParam(searchParam);
+    
   }
   return (
     <>
