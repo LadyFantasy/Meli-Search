@@ -35,7 +35,7 @@ function Product(props) {
             Cantidad de productos vendidos: {product.sold_quantity}
           </p>
           {product.accepts_mercadopago && <p className="mercadopago">Acepta Mercadopago</p>}
-          {product.condition === "new" && <p className="mercadopago">Nuevo</p>}
+          {product.condition === "new" ? <p className="mercadopago">Nuevo</p> : <p className="mercadopago">Usado</p>}
         </div>
       </div>
       <Link className="volver" to={`/search/${id.substring(0,3)}`}>Volver</Link>
