@@ -5,9 +5,11 @@ import "./index.scss"
 import { useParams} from "react-router-dom"
 
 function List(props) {
+  
   const { id } = useParams();
   const [items, setItems] = useState([]);
-  const searchQuery = props.searchParam ? props.searchParam : "chocolate"
+  const searchQuery = props.searchParam ? props.searchParam : "oferta"
+  console.log("LIST", props.searchParam, searchQuery)
 
   useEffect(() => {
     fetchData();
@@ -26,7 +28,7 @@ function List(props) {
         //   return item.title.toLowerCase().includes(props.searchParam.toLowerCase());
         // })
         .map((item, key) => {
-          return <Item title={item.title} img={item.thumbnail} id={item.id} price={item.price} key={item.id ? item.id : key} />;
+          return <Item idParam={id} title={item.title} img={item.thumbnail} id={item.id} price={item.price} key={item.id ? item.id : key} />;
         })}
     </div>
   );
