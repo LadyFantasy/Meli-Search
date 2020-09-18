@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Product(props) {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
-  const [img, setImg] = useState([]);
+  const [img, setImg] = useState({});
 
   useEffect(() => {
     fetchData();
@@ -19,7 +19,7 @@ function Product(props) {
     setProduct(getItems.data);
     setImg(getItems.data.pictures[0]);
   }
-  
+
   return (
     <div className="product-container">
       <div className="item-container">
@@ -38,7 +38,7 @@ function Product(props) {
           {product.condition == "new" && <p className="mercadopago">Nuevo</p>}
         </div>
       </div>
-      <Link className="volver" to="/search/:id">Volver</Link>
+      <Link className="volver" to="/search">Volver</Link>
     </div>
   );
 }
