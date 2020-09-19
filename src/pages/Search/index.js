@@ -8,7 +8,6 @@ function Search() {
 
   function handleSearch(searchParam) {
     setSearchParam(searchParam);
-    
   }
   return (
     <>
